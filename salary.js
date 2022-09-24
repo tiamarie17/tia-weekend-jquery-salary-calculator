@@ -51,12 +51,20 @@ function monthlyCost(){
     let totalMonthlyCost = 0;
     let totalAnnualCost = 0;
 
+    //Adding conditional if cost > $20,000
+
+
+
    //calculates the total monthly cost
    for(let newEmployee of employees){
      
      totalAnnualCost = parseFloat(totalAnnualCost) + parseFloat(newEmployee.salary);
 
-     totalMonthlyCost = (totalAnnualCost / 12).toFixed(2);
+     //Found a piece of code that adds commas to numbers that log as strings on Google
+     totalMonthlyCost = (totalAnnualCost / 12).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+     
+
+     console.log(typeof (totalAnnualCost / 12).toFixed(2));
      
      //Testing to see data types
       console.log(totalAnnualCost);
@@ -106,12 +114,14 @@ function render(){
      <td>${newEmployee.lastName}</td>
      <td>${newEmployee.id}</td>
      <td>${newEmployee.title}</td>
-     <td> $${newEmployee.salary}</td>
+     <td> $${(newEmployee.salary).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
      <td>
         <button id ="deleteButton">Delete</button>
     </td>
     </tr>
  `);
+ 
    }
+
 
 }
