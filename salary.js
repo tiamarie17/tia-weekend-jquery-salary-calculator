@@ -10,7 +10,12 @@ function readyNow() {
   //click listener for submit button
   $('#submitButton').on('click', getInfo)
   //click listener for delete button
-  $('#deleteButton').on('click', onDelete)
+  $('#employeeTable').on('click', '#deleteButton', onDelete);
+}
+
+function onDelete(){
+    console.log('in onDelete', $(this));
+    $(this).parent().parent().remove();
 }
 
 function getInfo(event){
@@ -77,7 +82,7 @@ function render(){
      <td>${newEmployee.title}</td>
      <td>${newEmployee.salary}</td>
      <td>
-        <button type ="submit" id ="deleteButton">Delete</button>
+        <button id ="deleteButton">Delete</button>
     </td>
     </tr>
  `);
