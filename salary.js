@@ -7,6 +7,16 @@ function readyNow() {
 }
 
 function monthlyCost(event){
-event.preventDefault();
 
+    event.preventDefault();
+
+    let newEmployee = {
+        firstName: $('#firstNameInput').val(),
+        lastName: $('#lastNameInput').val(),
+        id: $('#idInput').val(),
+        title: $('#jobTitleInput').val(),
+        salary: $('#annualSalaryInput').val()
+      };
+
+    console.log(newEmployee);
 }
