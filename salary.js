@@ -9,13 +9,16 @@ function readyNow() {
 
   //click listener for submit button
   $('#submitButton').on('click', getInfo)
+  //click listener for delete button
+  $('#deleteButton').on('click', onDelete)
 }
 
 function getInfo(event){
+    console.log('in getInfo');
 
     event.preventDefault();
 
-    //storing input from form into objects
+    //getting input from form and storing it in objects
     let newEmployee = {
         firstName: $('#firstNameInput').val(),
         lastName: $('#lastNameInput').val(),
@@ -33,14 +36,13 @@ function getInfo(event){
     //clearing input fields
     $('input').val('');
 
-    
-
     //calling the monthlyCost function
     monthlyCost();
     
 }
 
 function monthlyCost(){
+    console.log('in Monthly cost');
    //calculates the monthly cost
 
    //calling the render function
@@ -48,6 +50,7 @@ function monthlyCost(){
 }
 
 function render(){
+    console.log('in render');
    
     //updating the DOM
    $('#employeeTable').empty();
@@ -74,7 +77,7 @@ function render(){
      <td>${newEmployee.title}</td>
      <td>${newEmployee.salary}</td>
      <td>
-        <button type ="submit" id ="delete">Delete</button>
+        <button type ="submit" id ="deleteButton">Delete</button>
     </td>
     </tr>
  `);
