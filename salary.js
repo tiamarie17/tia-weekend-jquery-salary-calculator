@@ -33,14 +33,39 @@ function getInfo(event){
     //clearing input fields
     $('input').val('');
 
-    //appending employee info to the DOM
-    $('').append(``)
+    
 
-    //running the monthlyCost function
+    //calling the monthlyCost function
     monthlyCost();
     
 }
 
 function monthlyCost(){
    //calculates the monthly cost
+
+   //calling the render function
+   render();
+}
+
+function render(){
+   
+    //updating the DOM
+   $('#employeeTable').empty();
+   
+    //appending form input to the DOM
+   
+   for (let newEmployee of employees) {
+   $('#employeeTable').append(`
+   <tr>
+     <td>${newEmployee.firstName}</td>
+     <td>${newEmployee.lastName}</td>
+     <td>${newEmployee.id}</td>
+     <td>${newEmployee.title}</td>
+     <td>${newEmployee.salary}</td>
+     <td>
+        <button type ="submit" id ="delete">Delete</button>
+    </td>
+    </tr>
+ `);
+   }
 }
