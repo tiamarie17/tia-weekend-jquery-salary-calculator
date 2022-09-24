@@ -6,6 +6,7 @@ function readyNow() {
   $('#submitButton').on('click', monthlyCost)
 }
 
-function monthlyCost(){
-    
+function monthlyCost(event){
+event.preventDefault();
+
 }
