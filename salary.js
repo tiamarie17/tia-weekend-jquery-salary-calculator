@@ -56,15 +56,25 @@ function monthlyCost(){
      
      totalAnnualCost = parseFloat(totalAnnualCost) + parseFloat(newEmployee.salary);
 
-     totalmonthlyCost = (totalAnnualCost / 12).toFixed(2);
+     totalMonthlyCost = (totalAnnualCost / 12).toFixed(2);
      
      //Testing to see data types
       console.log(totalAnnualCost);
       console.log(typeof totalAnnualCost);
-      console.log(parseFloat(newEmployee.salary).toFixed(2));
+      console.log(parseFloat(newEmployee.salary));
       console.log(typeof parseFloat(newEmployee.salary));
       console.log(totalMonthlyCost);
+      console.log(typeof totalMonthlyCost);
+
+      //emptying the footer
+      $('#monthlyCost').empty();
+
+       //appending totalMonthlyCost to the DOM
+       $('#monthlyCost').append(`
+       <h2>Total Monthly Cost: $${totalMonthlyCost}</h2>
+       `)
    }
+
 
    //calling the render function
    render();
@@ -103,4 +113,5 @@ function render(){
     </tr>
  `);
    }
+
 }
