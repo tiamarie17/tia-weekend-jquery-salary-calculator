@@ -1,6 +1,5 @@
 //an array to store all of the employee objects
 let employees = [];
-let totalMonthlyCost = 0;
 
 $(document).ready(readyNow);
 
@@ -47,8 +46,15 @@ function getInfo(event){
 }
 
 function monthlyCost(){
-    console.log('in Monthly cost');
-   //calculates the monthly cost
+    console.log('in monthlyCost');
+
+    let totalMonthlyCost = 0;
+   //calculates the total monthly cost
+   for(let newEmployee of employees){
+     
+     totalMonthlyCost += (parseInt(newEmployee.salary));
+     console.log(totalMonthlyCost);
+   }
 
    //calling the render function
    render();
