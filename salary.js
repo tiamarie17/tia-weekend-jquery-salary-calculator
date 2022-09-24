@@ -51,6 +51,17 @@ function render(){
    
     //updating the DOM
    $('#employeeTable').empty();
+
+   //appending table column titles to the DOM
+   $('#employeeTable').append(`
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Employee ID</td>
+        <td>Title</td>
+        <td>Annual Salary</td>
+    </tr>
+   `);
    
     //appending form input to the DOM
    
