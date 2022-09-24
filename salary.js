@@ -49,11 +49,21 @@ function monthlyCost(){
     console.log('in monthlyCost');
 
     let totalMonthlyCost = 0;
+    let totalAnnualCost = 0;
+
    //calculates the total monthly cost
    for(let newEmployee of employees){
      
-     totalMonthlyCost += (parseInt(newEmployee.salary));
-     console.log(totalMonthlyCost);
+     totalAnnualCost = parseFloat(totalAnnualCost) + parseFloat(newEmployee.salary);
+
+     totalmonthlyCost = (totalAnnualCost / 12).toFixed(2);
+     
+     //Testing to see data types
+      console.log(totalAnnualCost);
+      console.log(typeof totalAnnualCost);
+      console.log(parseFloat(newEmployee.salary).toFixed(2));
+      console.log(typeof parseFloat(newEmployee.salary));
+      console.log(totalMonthlyCost);
    }
 
    //calling the render function
@@ -86,7 +96,7 @@ function render(){
      <td>${newEmployee.lastName}</td>
      <td>${newEmployee.id}</td>
      <td>${newEmployee.title}</td>
-     <td>${newEmployee.salary}</td>
+     <td> $${newEmployee.salary}</td>
      <td>
         <button id ="deleteButton">Delete</button>
     </td>
