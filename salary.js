@@ -53,7 +53,10 @@ function monthlyCost(){
 
     //Adding conditional if cost > $20,000
 
-
+     if (totalMonthlyCost > 20000) {
+       changeColor();
+     }
+     //Adding function to change color of monthlyCost text background
 
    //calculates the total monthly cost
    for(let newEmployee of employees){
@@ -75,18 +78,25 @@ function monthlyCost(){
       console.log(typeof totalMonthlyCost);
 
       //emptying the footer
-      $('#monthlyCost').empty();
+      $('.monthlyCost').empty();
 
        //appending totalMonthlyCost to the DOM
-       $('#monthlyCost').append(`
-       <h2>Total Monthly Cost: $${totalMonthlyCost}</h2>
+       $('.monthlyCost').append(`
+       
+        <h2>Total Monthly Cost: $${totalMonthlyCost}</h2>
+       
        `)
    }
-
-
    //calling the render function
    render();
 }
+
+function changeColor(){
+  let background = $('.monthlyCost')
+  background.style.backgroundColor = 'red';
+
+ }
+
 
 function render(){
     console.log('in render');
