@@ -1,5 +1,6 @@
 body {
     margin: 15px 30px;
+    font-family: 'Grotesco', Arial, Helvetica, sans-serif;
    }
 
 h1 {
@@ -12,8 +13,12 @@ h1 {
     width: 1000px;
 }
 
+h2 {
+    margin-bottom: 0px;
+}
+
 input {
-    height: 25px;
+    height: 28px;
     border-width: 2px;
     margin-bottom: 15px;
     margin-top: 15px;
@@ -23,8 +28,18 @@ input {
        
 }
 
-h2 {
-    margin-bottom: 0px;
+#submitButton {
+
+    float: right;
+    margin-right: 13px;
+    height: 35px;
+    padding: 1px 35px 1px 35px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    
+
 }
 
 .monthlyCost {
