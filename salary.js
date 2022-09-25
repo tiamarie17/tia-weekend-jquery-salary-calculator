@@ -12,100 +12,96 @@ function readyNow() {
   $('#employeeTable').on('click', '#deleteButton', onDelete);
 }
 
-function onDelete(){
-    console.log('in onDelete', $(this));
-    $(this).parent().parent().remove();
+function onDelete() {
+  console.log('in onDelete', $(this));
+  $(this).parent().parent().remove();
 }
 
-function getInfo(event){
-    console.log('in getInfo');
+function getInfo(event) {
+  console.log('in getInfo');
 
-    event.preventDefault();
+  event.preventDefault();
 
-    //getting input from form and storing it in objects
-    let newEmployee = {
-        firstName: $('#firstNameInput').val(),
-        lastName: $('#lastNameInput').val(),
-        id: $('#idInput').val(),
-        title: $('#jobTitleInput').val(),
-        salary: $('#annualSalaryInput').val()
-      };
+  //getting input from form and storing it in objects
+  let newEmployee = {
+    firstName: $('#firstNameInput').val(),
+    lastName: $('#lastNameInput').val(),
+    id: $('#idInput').val(),
+    title: $('#jobTitleInput').val(),
+    salary: $('#annualSalaryInput').val()
+  };
 
-    console.log(newEmployee);
+  console.log(newEmployee);
 
-    //pushing objects into employee array
-    employees.push(newEmployee);
-    console.log(employees);
+  //pushing objects into employee array
+  employees.push(newEmployee);
+  console.log(employees);
 
-    //clearing input fields
-    $('input').val('');
+  //clearing input fields
+  $('input').val('');
 
-    //calling the monthlyCost function
-    monthlyCost();
-    
+  //calling the monthlyCost function
+  addUpCost();
+
 }
 
-function monthlyCost(){
-    console.log('in monthlyCost');
+function addUpCost() {
+  console.log('in monthlyCost');
 
-    let totalMonthlyCost = 0;
-    let totalAnnualCost = 0;
+  let totalMonthlyCost = 0;
+  let totalAnnualCost = 0;
 
-    //Adding conditional if cost > $20,000
+  //Calculates the total monthly cost
+  for (let newEmployee of employees) {
 
-     if (totalMonthlyCost > 20000) {
-       changeColor();
-     }
-     //Adding function to change color of monthlyCost text background
+    totalAnnualCost = parseFloat(totalAnnualCost) + parseFloat(newEmployee.salary);
 
-   //calculates the total monthly cost
-   for(let newEmployee of employees){
-     
-     totalAnnualCost = parseFloat(totalAnnualCost) + parseFloat(newEmployee.salary);
+    //Found a piece of code that adds commas to numbers that log as strings on Google
+    totalMonthlyCost = (totalAnnualCost / 12).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-     //Found a piece of code that adds commas to numbers that log as strings on Google
-     totalMonthlyCost = (totalAnnualCost / 12).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-     
 
-     console.log(typeof (totalAnnualCost / 12).toFixed(2));
-     
-     //Testing to see data types
-      console.log(totalAnnualCost);
-      console.log(typeof totalAnnualCost);
-      console.log(parseFloat(newEmployee.salary));
-      console.log(typeof parseFloat(newEmployee.salary));
-      console.log(totalMonthlyCost);
-      console.log(typeof totalMonthlyCost);
+    console.log(typeof (totalAnnualCost / 12).toFixed(2));
 
-      //emptying the footer
-      $('.monthlyCost').empty();
+    //Testing to see data types
+    console.log(totalAnnualCost);
+    console.log(typeof totalAnnualCost);
+    console.log(parseFloat(newEmployee.salary));
+    console.log(typeof parseFloat(newEmployee.salary));
+    console.log(totalMonthlyCost);
+    console.log(typeof totalMonthlyCost);
 
-       //appending totalMonthlyCost to the DOM
-       $('.monthlyCost').append(`
-       
+    //emptying the footer
+    $('.monthlyCost').empty();
+
+    //appending totalMonthlyCost to the DOM
+    $('.monthlyCost').append(`
+        
         <h2>Total Monthly Cost: $${totalMonthlyCost}</h2>
-       
-       `)
-   }
-   //calling the render function
-   render();
+      `)  
+  }
+  //Changing totalMonthlyCost into a number
+  totalMonthlyCost = parseFloat(totalMonthlyCost);
+  
+
+  if (totalMonthlyCost > 20000) {
+    console.log('in if statement');
+    monthlyCost.style.backgroundColor = 'red';
+  
+  }
+  
+  //calling the render function
+  render(totalMonthlyCost);
 }
 
-function changeColor(){
-  let background = $('.monthlyCost')
-  background.style.backgroundColor = 'red';
 
- }
+function render(totalMonthlyCost) {
+  console.log('in render');
 
+  //updating the DOM
+  $('#employeeTable').empty();
 
-function render(){
-    console.log('in render');
-   
-    //updating the DOM
-   $('#employeeTable').empty();
-
-   //appending table column titles to the DOM
-   $('#employeeTable').append(`
+  //appending table column titles to the DOM
+  $('#employeeTable').append(`
     <tr>
         <td>First Name</td>
         <td>Last Name</td>
@@ -114,11 +110,11 @@ function render(){
         <td>Annual Salary</td>
     </tr>
    `);
-   
-    //appending form input to the DOM
-   
-   for (let newEmployee of employees) {
-   $('#employeeTable').append(`
+
+  //appending form input to the DOM
+
+  for (let newEmployee of employees) {
+    $('#employeeTable').append(`
    <tr>
      <td>${newEmployee.firstName}</td>
      <td>${newEmployee.lastName}</td>
@@ -130,8 +126,8 @@ function render(){
     </td>
     </tr>
  `);
- 
-   }
 
+
+  }
 
 }
