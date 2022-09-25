@@ -29,7 +29,6 @@ Screen Shot
 
 
 
-
 Built With
 JavsScript, JQuery, HTML, CSS
 
