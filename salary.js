@@ -117,6 +117,8 @@ function render(totalMonthlyCost) {
     //found code to change class atrribute using Google
     $('.monthlyCost').attr("class", "monthlyCostRed");
     
+  } else {
+    $('monthlyCost').attr("class", "monthlyCost");
   }
   
 }
