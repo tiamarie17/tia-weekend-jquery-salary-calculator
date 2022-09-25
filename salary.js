@@ -1,6 +1,7 @@
 //an array to store all of the employee objects
 let employees = [];
 
+
 $(document).ready(readyNow);
 
 function readyNow() {
@@ -12,10 +13,53 @@ function readyNow() {
   $('#employeeTable').on('click', '#deleteButton', onDelete);
 }
 
+
+
 function onDelete() {
   console.log('in onDelete', $(this));
+
+//getting the information that was clicked on and saving it in a variable
+  let deletedEmployee = ($(this).parent().parent().text());
+  console.log(($(this).parent().parent().text()));
+
+/*creating a new array with that information, using split method 
+to only get the words from the string since there are a lot of spaces in it.
+Setting the limit to 6 since we only need the first 5 indices.
+found this syntax on StackOverflow */
+  deletedEmployeeArray = deletedEmployee.split(/\s+/, 6);
+  console.log(deletedEmployeeArray);
+
+//removing the first index of the array since it is a blank space every time, not sure why
+
+deletedEmployeeArray.shift();
+console.log(deletedEmployeeArray);
+
+console.log(deletedEmployeeArray[0]);
+
+//Looping through the employee array to see if the employee id is a match
+
+for (let i = 0; i<employees.length; i++){
+     console.log(employees[i]);
+     if (deletedEmployeeArray[2] == employees[i].id){
+     console.log(i);
+
+     //getting employee salary at index i from employees array--not sure where to go from here to update the monthly total
+     let salaryToSubtract = employees[i].salary;
+     console.log(salaryToSubtract);
+
+
+     //removing object that matches from employees array at index where match is
+     employees.splice(i);
+     console.log(employees);
+     }
+    }
+    
+   
+  //Remove employee info from the DOM
   $(this).parent().parent().remove();
-}
+
+  }
+
 
 function getInfo(event) {
   console.log('in getInfo');
