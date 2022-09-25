@@ -77,12 +77,13 @@ function render(totalMonthlyCost) {
 
   //appending table column titles to the DOM
   $('#employeeTable').append(`
-    <tr>
+    <tr id ="firstRow">
         <td>First Name</td>
         <td>Last Name</td>
         <td>Employee ID</td>
         <td>Title</td>
         <td>Annual Salary</td>
+        <td></td>
     </tr>
    `);
 
@@ -96,14 +97,26 @@ function render(totalMonthlyCost) {
      <td>${newEmployee.id}</td>
      <td>${newEmployee.title}</td>
      <td> $${(newEmployee.salary).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
-     <td>
+     <td id ="deleteButtonColumn">
         <button id ="deleteButton">Delete</button>
     </td>
     </tr>
  `);
 
-
   }
+  
+  //appending extra row to the bottom of the table
+  $('#employeeTable').append(`
+      <tr id ="lastRow">
+        <td style="border:0;"></td>
+        <td style="border:0;"></td>
+        <td style="border:0;"></td>
+        <td style="border:0;"></td>
+        <td style="border:0;"></td>
+        <td></td>
+      </tr>
+ `);
+
     //emptying the footer
     $('.monthlyCost').empty();
 

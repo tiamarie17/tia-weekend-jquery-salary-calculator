@@ -53,7 +53,17 @@ tr:nth-child(odd) {
     background-color: #F5F5F5;
 }
 
+#deleteButtonColumn:nth-child(odd) {
+    background-color: #F5F5F5;
+}
+
+
 tr:nth-child(1) {
+    background-color: lightgrey;
+}
+
+#lastRow {
+    height: 2.5em;  
     background-color: lightgrey;
 }
 
@@ -68,12 +78,15 @@ table {
     display: block;
 }
 
+
 .monthlyCost {
     background-color: white;
+    float: right;
 }
 
 .monthlyCostRed {
     background-color: red;
+    float: right;
 }
 
 
