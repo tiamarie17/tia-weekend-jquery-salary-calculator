@@ -1,63 +1,37 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Monthly Cost Calculator
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+For this project, I created an app that records employee salaries and sums those salaries to calculate and report monthly costs. 
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+To solve this problem, I began by adding some elements (such as a header, form, table, submit and delete buttons, and div class) to my HTML file so that I could use JQuery to select them later. 
 
-PROJECT NAME
-Description
-Duration: 2 Week Sprint
+My next step was to add click listeners for the submit and delete buttons in the readyNow function within the JS file.
 
-Directly above this is how long it took you to develop the project. Your project description goes here. What problem did you solve? How did you solve it?
+I created a function onDelete to give instructions to remove input about an employee from the DOM when the delete button is clicked. To do this, I used the keyword this to refer to the button that was clicked, and removed its parents which removes one entire row of information at a time from the DOM.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam at massa in faucibus. Etiam volutpat, risus non mollis convallis, velit nisi pulvinar mi, eu faucibus orci nisi eget nibh. Integer a velit pretium, volutpat arcu eleifend, fringilla elit. Cras erat sapien, convallis venenatis tellus vitae, feugiat dictum felis.
+When the submit button is clicked, a function called getInfo runs. 
 
-Suspendisse euismod volutpat aliquet. Maecenas vulputate mauris in pellentesque facilisis. Phasellus varius malesuada semper. Cras sollicitudin diam mollis maximus aliquam.
+The getInfo function gets the input from the form and stores it in an array of objects. It also clears the input field once the submit button is clicked. At the end of the getInfo function, a function called addUpCost is called. 
 
-To see the fully functional site, please visit: DEPLOYED VERSION OF APP
+The addUpCost function declares the variables totalAnnualCost and totalMonthly cost. After, it loops through the array of objects and calculates the totalAnnual cost by adding the totalAnnualCost to the employee salary from each object. I used parseFloat to change the strings from the object into numbers and ensure that the totalAnnualCost variable would also be a number I could use for calculations. Outside of the for loop, I used the totalAnnualCost value to calculate the totalMonthlyCost. Finally, it calls the render function.
+
+Last, I used the render function to append information back to the DOM. This function updates the DOM by emptying the table, and then appends table column titles so that those will always appear there. It then loops through the array of objects and appends the employee input (first name, last name, id, title, annual salary) along with a delete button. These are appended in columns so they are added to the table in rows. Outside of the for loop, it then emptys the div which contains the total monthly cost, and appends the total monthly cost to the DOM. In order to ensure that the total monthly cost is displayed using two decimal points and includes commas, I added a toFixed method and a replace method inside of the command to append the information to the DOM. This allowed me to keep the input as numbers for the calculations and change them to strings only once they get displayed on the DOM. The render function also includes an if/else statement that changes the background color of the total monthly cost display to red if the total monthly cost is greater than $20,000. To do this, I created two different classes of monthlyCost in the CSS file, each with different background colors assigned. Back in the JS file, I then used the attribute method to change the monthlyCost class that gets used based on the conditions.
+
+I then added styling in CSS files to make the DOM look more user-friendly. 
+
+Project Duration: 20 hours
+
 
 Screen Shot
-Include one or two screen shots of your project here (optional). Remove if unused.
 
-Prerequisites
-Link to software that is required to install the app (e.g. node).
 
-Node.js
-List other prerequisites here
-Installation
-How do you get your application up and running? This is a step by step list for how another developer could get this project up and running. The good target audience in terms of knowledge, would be a fellow Primer from another cohort being able to spin up this project. Note that you do not need a paragraph here to intro Installation. It should be step-by-step.
 
-If your application has secret keys (for example -- Twilio), make sure you tell them how to set that up, both in getting the key and then what to call it in the .env file.
 
-Create a database named your database name,
-The queries in the tables.sql file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on Postgres, so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries,
-Open up your editor of choice and run an npm install
-Run npm run server in your terminal
-Run npm run client in your terminal
-The npm run client command will open up a new browser tab for you!
-Usage
-How does someone use this application? Tell a user story here.
-
-xxx
-xxx
-xxx
-xxx
-xxx
-xxx
 Built With
-List technologies and frameworks here
-
-License
-MIT
-
-Note, include this only if you have a license file. GitHub will generate one for you if you want!
+JavsScript, JQuery, HTML, CSS
 
 Acknowledgement
-Thanks to Prime Digital Academy who equipped and helped me to make this application a reality. (Thank your people)
-
-Support
-If you have suggestions or issues, please email me at youremail@whatever.com
+Thanks to Prime Digital Academy who equipped and helped me to make this application a reality. 

@@ -65,6 +65,7 @@ function addUpCost() {
 
   //calling the render function
   render(totalMonthlyCost);
+
 }
 
 
@@ -111,14 +112,15 @@ function render(totalMonthlyCost) {
         
         <h2>Total Monthly Cost: $${totalMonthlyCost.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h2>
       `)  
+   // conditional to change the background color of monthly cost to red if total monthly cost is > $20,000   
   if (totalMonthlyCost >= 20000) {
     console.log('in if statement');
 
-    //found code to change class atrribute using Google
+    //found code to change class atrribute using Google search
     $('.monthlyCost').attr("class", "monthlyCostRed");
     
   } else {
-    $('monthlyCost').attr("class", "monthlyCost");
+    $('.monthlyCost').attr("class", "monthlyCost");
   }
   
 }
