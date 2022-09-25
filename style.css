@@ -1,3 +1,7 @@
+body {
+    margin: 15px 30px;
+   }
+
 h1 {
     background-color: grey;
     color: white;
@@ -8,11 +12,20 @@ h1 {
     width: 1000px;
 }
 
-body {
- margin: 15px 35px;
+input {
+    height: 25px;
+    border-width: 2px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: 4px;
+    margin-right: 4px;
+    display: inline-table;
+       
 }
 
-
+h2 {
+    margin-bottom: 0px;
+}
 
 .monthlyCost {
     background-color: white;
