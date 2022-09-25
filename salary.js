@@ -46,7 +46,7 @@ function getInfo(event) {
 }
 
 function addUpCost() {
-  console.log('in monthlyCost');
+  console.log('in addUpCost');
 
   let totalMonthlyCost = 0;
   let totalAnnualCost = 0;
@@ -55,40 +55,14 @@ function addUpCost() {
   for (let newEmployee of employees) {
 
     totalAnnualCost = parseFloat(totalAnnualCost) + parseFloat(newEmployee.salary);
-
-    //Found a piece of code that adds commas to numbers that log as strings on Google
-    totalMonthlyCost = (totalAnnualCost / 12).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-
-    console.log(typeof (totalAnnualCost / 12).toFixed(2));
-
-    //Testing to see data types
     console.log(totalAnnualCost);
-    console.log(typeof totalAnnualCost);
-    console.log(parseFloat(newEmployee.salary));
-    console.log(typeof parseFloat(newEmployee.salary));
-    console.log(totalMonthlyCost);
-    console.log(typeof totalMonthlyCost);
 
-    //emptying the footer
-    $('.monthlyCost').empty();
-
-    //appending totalMonthlyCost to the DOM
-    $('.monthlyCost').append(`
-        
-        <h2>Total Monthly Cost: $${totalMonthlyCost}</h2>
-      `)  
   }
-  //Changing totalMonthlyCost into a number
-  totalMonthlyCost = parseFloat(totalMonthlyCost);
-  
 
-  if (totalMonthlyCost > 20000) {
-    console.log('in if statement');
-    monthlyCost.style.backgroundColor = 'red';
-  
-  }
-  
+  totalMonthlyCost = totalAnnualCost / 12;
+  console.log(totalMonthlyCost);
+ 
+
   //calling the render function
   render(totalMonthlyCost);
 }
@@ -129,5 +103,20 @@ function render(totalMonthlyCost) {
 
 
   }
+    //emptying the footer
+    $('.monthlyCost').empty();
 
+    //appending totalMonthlyCost to the DOM
+    $('.monthlyCost').append(`
+        
+        <h2>Total Monthly Cost: $${totalMonthlyCost.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h2>
+      `)  
+  if (totalMonthlyCost >= 20000) {
+    console.log('in if statement');
+
+    //found code to change class atrribute using Google
+    $('.monthlyCost').attr("class", "monthlyCostRed");
+    
+  }
+  
 }
