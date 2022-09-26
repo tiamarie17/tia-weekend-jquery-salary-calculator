@@ -27,9 +27,9 @@ Project Duration: 20 hours
 
 Screen Shot
 
-![Alt text](img/screenshot1.png)
-
 ![Alt text](img/screenshot2.png)
+
+![Alt text](img/screenshot1.png)
 
 
 
