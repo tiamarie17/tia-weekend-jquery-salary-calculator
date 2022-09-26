@@ -93,7 +93,7 @@ function getInfo(event) {
 }
 
 function getMonthlyCost() {
-  console.log('in addUpCost');
+  console.log('getMonthlyCost');
 
   let totalMonthlyCost = 0;
   let totalAnnualCost = 0;
