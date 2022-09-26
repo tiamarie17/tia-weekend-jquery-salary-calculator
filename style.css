@@ -31,7 +31,7 @@ input {
 #submitButton {
 
     float: right;
-    margin-right: 13px;
+    margin-right: 35rem;
     height: 35px;
     padding: 1px 35px 1px 35px;
     text-align: center;
@@ -82,11 +82,13 @@ table {
 .monthlyCost {
     background-color: white;
     float: right;
+    margin-right: 35rem;
 }
 
 .monthlyCostRed {
     background-color: red;
     float: right;
+    margin-right: 35rem;
 }
 
 
