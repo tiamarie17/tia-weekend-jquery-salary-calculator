@@ -1,6 +1,7 @@
 body {
     margin: 15px 30px;
     font-family: 'Grotesco', Arial, Helvetica, sans-serif;
+    width: 50rem;
    }
 
 h1 {
@@ -31,7 +32,7 @@ input {
 #submitButton {
 
     float: right;
-    margin-right: 35rem;
+    margin: auto;
     height: 35px;
     padding: 1px 35px 1px 35px;
     text-align: center;
@@ -82,13 +83,13 @@ table {
 .monthlyCost {
     background-color: white;
     float: right;
-    margin-right: 35rem;
+    margin-right: auto;
 }
 
 .monthlyCostRed {
     background-color: red;
     float: right;
-    margin-right: 35rem;
+    margin-right: auto;
 }
 
 
