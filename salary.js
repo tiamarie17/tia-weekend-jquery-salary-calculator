@@ -52,6 +52,16 @@ function onDelete() {
 
   totalMonthlyCost = getMonthlyCost();
 
+<<<<<<< HEAD
+=======
+     //removing object that matches from employees array at index where match is
+     employees.splice(i, 1);
+     console.log(employees);
+     }
+    }
+    
+   
+>>>>>>> 5c3a4f65af5e7b386de8263c28dd9da49951606d
   //Remove employee info from the DOM
   $(this).parent().parent().remove();
 
@@ -85,15 +95,23 @@ function getInfo(event) {
   $('input').val('');
 
   //calling the monthlyCost function
+<<<<<<< HEAD
   totalMonthlyCost = getMonthlyCost();
 
   //calling the render function
   render(totalMonthlyCost);
+=======
+  getMonthlyCost();
+>>>>>>> 5c3a4f65af5e7b386de8263c28dd9da49951606d
 
 }
 
 function getMonthlyCost() {
+<<<<<<< HEAD
   console.log('getMonthlyCost');
+=======
+  console.log('in getMonthlyCost');
+>>>>>>> 5c3a4f65af5e7b386de8263c28dd9da49951606d
 
   let totalMonthlyCost = 0;
   let totalAnnualCost = 0;
