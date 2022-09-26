@@ -49,7 +49,7 @@ for (let i = 0; i<employees.length; i++){
 
 
      //removing object that matches from employees array at index where match is
-     employees.splice(i);
+     employees.splice(i, 1);
      console.log(employees);
      }
     }
@@ -85,12 +85,12 @@ function getInfo(event) {
   $('input').val('');
 
   //calling the monthlyCost function
-  addUpCost();
+  getMonthlyCost();
 
 }
 
-function addUpCost() {
-  console.log('in addUpCost');
+function getMonthlyCost() {
+  console.log('in getMonthlyCost');
 
   let totalMonthlyCost = 0;
   let totalAnnualCost = 0;
