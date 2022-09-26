@@ -10,7 +10,7 @@ To solve this problem, I began by adding some elements (such as a header, form, 
 
 My next step was to add click listeners for the submit and delete buttons in the readyNow function within the JS file.
 
-I created a function onDelete to give instructions to remove input about an employee from the DOM when the delete button is clicked. To do this, I used the keyword this to refer to the button that was clicked, and removed its parents which removes one entire row of information at a time from the DOM.
+I created a function onDelete to give instructions to remove input about an employee from the DOM when the delete button is clicked. To do this, I used the keyword this to refer to the button that was clicked, and removed its parents which removes one entire row of information at a time from the DOM. I also used the .text() method to get the string of the employee information that was removed from the DOM. I used the split method to get the string into individual words and put it into an array. The last part of this function loops through the employee array employee IDs and compares them to the employee ID that was removed and put into the other array. Once the match is found, I used the splice method to remove that index number from the employee array so that it will update. 
 
 When the submit button is clicked, a function called getInfo runs. 
 
