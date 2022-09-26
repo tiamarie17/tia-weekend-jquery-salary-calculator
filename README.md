@@ -27,9 +27,9 @@ Project Duration: 20 hours
 
 Screen Shot
 
-![Alt text](img/Screen Shot 2022-09-25 at 2.24.06 PM.png)
+![Alt text](img/screenshot1.png)
 
-![Alt text](img/Screen Shot 2022-09-25 at 2.19.11 PM.png)
+![Alt text](img/screenshot2.png)
 
 
 
