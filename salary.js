@@ -18,47 +18,47 @@ function readyNow() {
 function onDelete() {
   console.log('in onDelete', $(this));
 
-//getting the information that was clicked on and saving it in a variable
+  //getting the information that was clicked on and saving it in a variable
   let deletedEmployee = ($(this).parent().parent().text());
   console.log(($(this).parent().parent().text()));
 
-/*creating a new array with that information, using split method 
-to only get the words from the string since there are a lot of spaces in it.
-Setting the limit to 6 since we only need the first 5 indices.
-found this syntax on StackOverflow */
+  /*creating a new array with that information, using split method 
+  to only get the words from the string since there are a lot of spaces in it.
+  Setting the limit to 6 since we only need the first 5 indices.
+  found this syntax on StackOverflow */
   deletedEmployeeArray = deletedEmployee.split(/\s+/, 6);
   console.log(deletedEmployeeArray);
 
-//removing the first index of the array since it is a blank space every time, not sure why
+  //removing the first index of the array since it is a blank space every time, not sure why
 
-deletedEmployeeArray.shift();
-console.log(deletedEmployeeArray);
+  deletedEmployeeArray.shift();
+  console.log(deletedEmployeeArray);
 
-console.log(deletedEmployeeArray[0]);
+  //Looping through the employee array to see if the employee id is a match
 
-//Looping through the employee array to see if the employee id is a match
-
-for (let i = 0; i<employees.length; i++){
-     console.log(employees[i]);
-     if (deletedEmployeeArray[2] == employees[i].id){
-     console.log(i);
-
-     //getting employee salary at index i from employees array--not sure where to go from here to update the monthly total
-     let salaryToSubtract = employees[i].salary;
-     console.log(salaryToSubtract);
+  for (let i = 0; i < employees.length; i++) {
+    console.log(employees[i]);
+    if (deletedEmployeeArray[2] == employees[i].id) {
+      console.log(i);
 
 
-     //removing object that matches from employees array at index where match is
-     employees.splice(i);
-     console.log(employees);
-     }
+      //removing object that matches from employees array at index where match is
+      employees.splice(i,1);
+      console.log(employees);
     }
-    
-   
+  }
+
+  //call getMonthlyCost function and save it in a variable totalMonthlyCost
+
+  totalMonthlyCost = getMonthlyCost();
+
   //Remove employee info from the DOM
   $(this).parent().parent().remove();
 
-  }
+  //update the DOM with totalMonthlyCost
+  render(totalMonthlyCost);
+
+}
 
 
 function getInfo(event) {
@@ -85,11 +85,14 @@ function getInfo(event) {
   $('input').val('');
 
   //calling the monthlyCost function
-  addUpCost();
+  totalMonthlyCost = getMonthlyCost();
+
+  //calling the render function
+  render(totalMonthlyCost);
 
 }
 
-function addUpCost() {
+function getMonthlyCost() {
   console.log('in addUpCost');
 
   let totalMonthlyCost = 0;
@@ -105,10 +108,8 @@ function addUpCost() {
 
   totalMonthlyCost = totalAnnualCost / 12;
   console.log(totalMonthlyCost);
- 
 
-  //calling the render function
-  render(totalMonthlyCost);
+  return totalMonthlyCost;
 
 }
 
@@ -148,7 +149,7 @@ function render(totalMonthlyCost) {
  `);
 
   }
-  
+
   //appending extra row to the bottom of the table
   $('#employeeTable').append(`
       <tr id ="lastRow">
@@ -161,23 +162,23 @@ function render(totalMonthlyCost) {
       </tr>
  `);
 
-    //emptying the footer
-    $('.monthlyCost').empty();
+  //emptying the footer
+  $('.monthlyCost').empty();
 
-    //appending totalMonthlyCost to the DOM
-    $('.monthlyCost').append(`
+  //appending totalMonthlyCost to the DOM
+  $('.monthlyCost').append(`
         
         <h2>Total Monthly Cost: $${totalMonthlyCost.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h2>
-      `)  
-   // conditional to change the background color of monthly cost to red if total monthly cost is > $20,000   
+      `)
+  // conditional to change the background color of monthly cost to red if total monthly cost is > $20,000   
   if (totalMonthlyCost >= 20000) {
     console.log('in if statement');
 
     //found code to change class atrribute using Google search
     $('.monthlyCost').attr("class", "monthlyCostRed");
-    
+
   } else {
     $('.monthlyCost').attr("class", "monthlyCost");
   }
-  
+
 }
