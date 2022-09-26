@@ -51,13 +51,7 @@ function onDelete() {
   //call getMonthlyCost function and save it in a variable totalMonthlyCost
 
   totalMonthlyCost = getMonthlyCost();
-
-
-  //removing object that matches from employees array at index where match is
-  employees.splice(i, 1);
-  console.log(employees);
     
-  
      
   //Remove employee info from the DOM
   $(this).parent().parent().remove();
